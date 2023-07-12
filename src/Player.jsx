@@ -2,7 +2,7 @@ import { useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { RigidBody, useRapier } from "@react-three/rapier";
 import { useEffect, useRef} from "react";
-
+import * as THREE from 'three'
 
 
 export default function Player({position=[0,0,0]})
@@ -48,8 +48,8 @@ export default function Player({position=[0,0,0]})
         const impulse = {x:0 , y:0, z: 0 }
         const torque = {x:0 , y:0, z: 0 }
         
-        const impulseStrength = 1.5 * delta
-        const torqueStrength = 0.5 * delta
+        const impulseStrength = 2 * delta
+        const torqueStrength = 1 * delta
 
         if (forward) 
         {
@@ -74,7 +74,23 @@ export default function Player({position=[0,0,0]})
 
         ball.current.applyImpulse(impulse)
         ball.current.applyTorqueImpulse(torque)
-        
+
+        //CAMERA 
+
+        const ballPosition = ball.current.translation()
+   
+
+        const cameraPosition = new THREE.Vector3()
+        cameraPosition.copy(ballPosition)
+        cameraPosition.x -= 3
+        cameraPosition.y += 1
+
+        const cameraTarget = new THREE.Vector3()
+        cameraTarget.copy(ballPosition)
+        cameraTarget.y += 0.5
+
+        state.camera.position.copy(cameraPosition)
+        state.camera.lookAt(cameraTarget)
     })
 
     return <>
