@@ -13,7 +13,7 @@ export default function Start({ position=[0,0,0] })
         position={position}
         geometry={boxGeometry} 
         material={InOutMaterial} 
-        scale={[heigthFloor,depthFloor,widthFloor]}
+        scale={[heigthFloor,5,widthFloor]}
         receiveShadow
             />
 

@@ -52,28 +52,28 @@ export default function Player({position=[0,0,0]})
         const impulse = {x:0 , y:0, z: 0 }
         const torque = {x:0 , y:0, z: 0 }
         
-        const impulseStrength = 2 * delta
+        const impulseStrength = 1 * delta
         const torqueStrength = 0.5 * delta
 
         if (forward) 
         {
-            impulse.x += impulseStrength  
-            torque.z -= torqueStrength  
+            impulse.x = impulseStrength  
+            torque.z = - torqueStrength  
         }
         if (backward) 
         {
-            impulse.x -= impulseStrength  
-            torque.z += torqueStrength  
+            impulse.x = -impulseStrength  
+            torque.z = torqueStrength  
         }
         if (leftward) 
         {
-            impulse.z -= impulseStrength  
-            torque.x -= torqueStrength  
+            impulse.z = -impulseStrength  
+            torque.x = -torqueStrength  
         }
         if (rightward) 
         {
-            impulse.z += impulseStrength  
-            torque.x += torqueStrength  
+            impulse.z = impulseStrength  
+            torque.x = torqueStrength  
         }
 
         ball.current.applyImpulse(impulse)
@@ -86,8 +86,8 @@ export default function Player({position=[0,0,0]})
 
         const cameraPosition = new THREE.Vector3()
         cameraPosition.copy(ballPosition)
-        cameraPosition.x -= 4
-        cameraPosition.y += 1
+        cameraPosition.x -= 7
+        cameraPosition.y += 4
 
         const cameraTarget = new THREE.Vector3()
         cameraTarget.copy(ballPosition)

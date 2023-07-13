@@ -1,8 +1,10 @@
 import './style.css'
 import ReactDOM from 'react-dom/client'
 import Experience from '../Experience.jsx'
+import Interface from './Interface'
 import { Canvas } from '@react-three/fiber'
 import { KeyboardControls } from '@react-three/drei'
+
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -27,5 +29,6 @@ root.render(
     >
         <Experience count={8}/>
     </Canvas>
+    <Interface/>
     </KeyboardControls>
 )

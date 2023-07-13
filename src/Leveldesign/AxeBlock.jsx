@@ -26,7 +26,7 @@ export default function AxeBlock ({ position=[0,0,0] })
 
         obstacle.current.setNextKinematicTranslation(
             {x:position[0],
-             y:position[1]+2,
+             y:position[1]+1.2,
              z:position[2] + + Math.sin(time + offset)})
     })
 
@@ -41,14 +41,14 @@ export default function AxeBlock ({ position=[0,0,0] })
             <RigidBody 
                 ref={obstacle}
                 type="kinematicPosition" 
-                position={[0,1,0]}
+                position={[0,0,0]}
                 restitution={0.2}
                 friction={friction}
             >
             <mesh 
                 geometry={boxGeometry} 
                 material={obstaclesMaterial} 
-                scale={[0.4,4,2]}
+                scale={[0.4,2,2]}
                 castShadow
             />
             </RigidBody>
