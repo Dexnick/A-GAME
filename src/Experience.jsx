@@ -50,7 +50,7 @@ export default function Experience({count=1, types=[TwisterBlock,LimboBlock,AxeB
         <Perf position={"top-left"}/>
 
         {/* Game */}
-        <Physics debug={true}>  
+        <Physics debug={false}>  
             <Player position={[0,0.7,0]}/>
             <Start position={[0,-0.1,0]}/>
             { 
