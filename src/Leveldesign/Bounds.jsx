@@ -8,7 +8,7 @@ import {
     heigthFloor,
     depthFloor,
     heightWalls
-    } from '../Experience.jsx'
+    } from '../setup/Experience.jsx'
 
 
 export default function Bounds({length=1})

@@ -5,7 +5,7 @@ import {
     widthFloor,
     heigthFloor,
     depthFloor 
-    } from '../Experience.jsx'
+    } from '../setup/Experience.jsx'
 
 export default function Start({ position=[0,0,0] })
 {

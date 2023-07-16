@@ -9,7 +9,7 @@ import {
     widthFloor,
     heigthFloor,
     depthFloor,
-    } from '../Experience.jsx'
+    } from '../setup/Experience.jsx'
 
 export default function End({ position=[0,0,0] })
 {   

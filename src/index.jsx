@@ -1,7 +1,7 @@
 import './style.css'
 import ReactDOM from 'react-dom/client'
-import Experience from '../Experience.jsx'
-import Interface from './Interface'
+import Experience from './setup/Experience.jsx'
+import Interface from './setup/Interface.jsx'
 import { Canvas } from '@react-three/fiber'
 import { KeyboardControls } from '@react-three/drei'
 

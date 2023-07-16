@@ -12,7 +12,7 @@ import {
     heigthFloor,
     depthFloor,
     
-    } from '../Experience.jsx'
+    } from '../setup/Experience.jsx'
 
 
 export default function TwisterBlock ({ position=[0,0,0] })

@@ -10,8 +10,7 @@ import {
     widthFloor,
     heigthFloor,
     depthFloor,
-    } from '../Experience.jsx'
-
+    } from '../setup/Experience.jsx'
 
 export default function AxeBlock ({ position=[0,0,0] })
 {
