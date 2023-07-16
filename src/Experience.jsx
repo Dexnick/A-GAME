@@ -2,17 +2,17 @@ import { OrbitControls } from '@react-three/drei'
 import { Physics } from '@react-three/rapier'
 import { Perf } from 'r3f-perf'
 import { useMemo } from 'react'
-import Lights from './Setup/Lights.jsx'
+import Lights from './setup/Lights.jsx'
 import * as THREE from 'three'
 
 
 //Level Begin
-import Start from './Leveldesign/Start.jsx'
-import End  from './Leveldesign/End.jsx'
-import TwisterBlock  from './Leveldesign/Twister.jsx'
-import LimboBlock  from './Leveldesign/LimboBlock.jsx'
-import AxeBlock  from './Leveldesign/AxeBlock.jsx'
-import Bounds  from './Leveldesign/Bounds.jsx'
+import Start from './leveldesign/Start.jsx'
+import End  from './leveldesign/End.jsx'
+import TwisterBlock  from './leveldesign/Twister.jsx'
+import LimboBlock  from './leveldesign/LimboBlock.jsx'
+import AxeBlock  from './leveldesign/AxeBlock.jsx'
+import Bounds  from './leveldesign/Bounds.jsx'
 import Player from './Player.jsx'
 
 
