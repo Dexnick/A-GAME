@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { RigidBody, useRapier } from "@react-three/rapier";
 import { useEffect, useRef, useState} from "react";
 import * as THREE from 'three'
+import useGame from "./stores/useGame";
 
 
 export default function Player({position=[0,0,0]})
@@ -14,6 +15,9 @@ export default function Player({position=[0,0,0]})
     
     const [ smoothedCameraPosition ] = useState(()=> new THREE.Vector3(-10,10,0))
     const [ smoothedCameraTarget ] = useState(()=> new THREE.Vector3())
+
+    const start = useGame((state)=> state.start)
+    const end = useGame((state)=> state.end)
 
     const jump = ()=>
     {
@@ -39,9 +43,18 @@ export default function Player({position=[0,0,0]})
                 }
             },
         )
+
+        const unsubscribeAny = subscribeKeys(
+            ()=>
+            {
+                start()
+            }
+        )
+
         return () =>
         {
             unsubscribeJump()
+            unsubscribeAny()
         }
     },[])
 

@@ -4,7 +4,7 @@ import { Perf } from 'r3f-perf'
 import { useMemo } from 'react'
 import Lights from './setup/Lights.jsx'
 import * as THREE from 'three'
-
+import useGame from './stores/useGame.jsx'
 
 //Level Begin
 import Start from './leveldesign/Start.jsx'
