@@ -1,6 +1,7 @@
 import {create} from 'zustand'
+import {subscribeWithSelector} from 'zustand/middleware'
 
-export default create((set)=>
+export default create(subscribeWithSelector((set)=>
 {
     return {
 
@@ -11,23 +12,33 @@ export default create((set)=>
 
         start: () =>
         {
-            set(()=> {
-                return { phase: 'playing' }
+            set((state)=> {
+                if(state.phase === 'ready')
+                    return { phase: 'playing' }
+                return {}
             })
         },
 
         restart: () =>
         {
-            set(()=> {
-                return { phase: 'ready' }
+            set((state)=> {
+                if(state.phase === 'playing' || state.phase === 'ended')
+                    return { phase: 'ready' }
+                return{}
             })
         },
 
         end: () =>
         {
-            set(()=> {
-                return { phase: 'ended' }
+            set((state)=> {
+                if(state.phase === 'playing')
+                { 
+                    console.log('end');
+                    return { phase: 'ended' }
+                }
+                    
+                return {}
             })
         }
     }
-})
+}))

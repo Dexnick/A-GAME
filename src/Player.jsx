@@ -31,9 +31,26 @@ export default function Player({position=[0,0,0]})
 
         if (hit.toi < 0.15 ) 
         ball.current.applyImpulse({x:0, y:1.5, z:0})
+
     }
+
+    const reset = ()=>
+    {
+        ball.current.setTranslation({x: 0, y: 1, z: 0})
+        ball.current.setLinvel({x:0, y:0, z:0})
+        ball.current.setAngvel({x:0, y:0, z:0})
+    }
+
     useEffect(()=>
     {
+        const unsubscribeReset = useGame.subscribe(
+            (state) => state.phase,
+            (phase) =>
+            {
+                if(phase === 'ready')
+                    reset()
+            }
+        )
         const unsubscribeJump = subscribeKeys(
             //Selector, what we want to listen
             (state)=> state.jump,
@@ -57,6 +74,7 @@ export default function Player({position=[0,0,0]})
         {
             unsubscribeJump()
             unsubscribeAny()
+            unsubscribeReset()
         }
     },[])
 

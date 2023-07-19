@@ -2,7 +2,8 @@ import { CuboidCollider, RigidBody } from "@react-three/rapier";
 import {
     restitution,
     widthFloor,
-    heigthFloor    } from '../setup/Level.jsx'
+    heigthFloor,    
+    depthFloor} from '../setup/Level.jsx'
 
 
 export default function Floor({length=1})
@@ -40,8 +41,8 @@ export default function Floor({length=1})
             /> */}
             
             <CuboidCollider 
-                args={[(heigthFloor/2)*length, 0.1, widthFloor/2]}
-                position={[(length*2)-2, -0.1, 0]}
+                args={[(heigthFloor/2)*length, depthFloor * 0.5, widthFloor/2]}
+                position={[(length*2)-2, -5, 0]}
                 restitution={restitution} 
                 friction={1}
             />

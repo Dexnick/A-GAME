@@ -28,7 +28,7 @@ export default function End({ position=[0,0,0] })
                 receiveShadow
             />
             <RigidBody type="fixed" colliders="hull" restitution={restitution} friction={friction}> 
-            <primitive object={hamburger.scene} scale={0.2} position-y={depthFloor - 0.5}/>
+            <primitive object={hamburger.scene} scale={0.2} position-y={depthFloor - 5}/>
             </RigidBody>
     </group>
     </>
