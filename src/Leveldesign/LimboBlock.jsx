@@ -11,7 +11,7 @@ import {
     heigthFloor,
     depthFloor,
     
-    } from '../setup/Experience.jsx'
+    } from '../setup/Level.jsx'
 
 export default function LimboBlock ({ position=[0,0,0] })
 {
@@ -26,7 +26,7 @@ export default function LimboBlock ({ position=[0,0,0] })
 
         obstacle.current.setNextKinematicTranslation(
             {x:position[0],
-             y:position[1] + Math.sin(time+ offset)+1.2,
+             y:position[1] + Math.sin(time+ offset)+ depthFloor - 3.8,
              z:position[2]})
     })
 

@@ -12,7 +12,7 @@ import {
     heigthFloor,
     depthFloor,
     
-    } from '../setup/Experience.jsx'
+    } from '../setup/Level.jsx'
 
 
 export default function TwisterBlock ({ position=[0,0,0] })
@@ -29,6 +29,7 @@ export default function TwisterBlock ({ position=[0,0,0] })
         const rotation = new THREE.Quaternion()
         rotation.setFromEuler(new THREE.Euler(0,time * speed,0))
         obstacle.current.setNextKinematicRotation(rotation)
+
     })
 
     return<>
@@ -42,7 +43,7 @@ export default function TwisterBlock ({ position=[0,0,0] })
             <RigidBody 
                 ref={obstacle}
                 type="kinematicPosition" 
-                position={[0,0.2,0]}
+                position={[0,depthFloor-4.8,0]}
                 restitution={0.2}
                 friction={friction}
             >

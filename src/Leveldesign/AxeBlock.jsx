@@ -10,7 +10,7 @@ import {
     widthFloor,
     heigthFloor,
     depthFloor,
-    } from '../setup/Experience.jsx'
+    } from '../setup/Level.jsx'
 
 export default function AxeBlock ({ position=[0,0,0] })
 {
@@ -25,7 +25,7 @@ export default function AxeBlock ({ position=[0,0,0] })
 
         obstacle.current.setNextKinematicTranslation(
             {x:position[0],
-             y:position[1]+1.2,
+             y:position[1]+ depthFloor - 4,
              z:position[2] + + Math.sin(time + offset)})
     })
 

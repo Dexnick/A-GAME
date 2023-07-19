@@ -18,6 +18,8 @@ export default function Player({position=[0,0,0]})
 
     const start = useGame((state)=> state.start)
     const end = useGame((state)=> state.end)
+    const restart = useGame((state)=> state.restart)
+    const blocksCount = useGame((state)=> state.blocksCount)
 
     const jump = ()=>
     {
@@ -111,6 +113,12 @@ export default function Player({position=[0,0,0]})
 
         state.camera.position.copy(smoothedCameraPosition)
         state.camera.lookAt(smoothedCameraTarget)
+        
+        //Phases
+
+        if (ballPosition.x > blocksCount * 4 + 2 ) {end()}
+        if (ballPosition.y < - 2  ) {restart()}
+
     })
 
     return <>

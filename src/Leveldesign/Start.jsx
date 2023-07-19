@@ -5,7 +5,7 @@ import {
     widthFloor,
     heigthFloor,
     depthFloor 
-    } from '../setup/Experience.jsx'
+    } from '../setup/Level.jsx'
 
 export default function Start({ position=[0,0,0] })
 {
@@ -13,7 +13,7 @@ export default function Start({ position=[0,0,0] })
         position={position}
         geometry={boxGeometry} 
         material={InOutMaterial} 
-        scale={[heigthFloor,5,widthFloor]}
+        scale={[heigthFloor,depthFloor,widthFloor]}
         receiveShadow
             />
 
