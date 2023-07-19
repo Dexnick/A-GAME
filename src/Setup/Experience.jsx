@@ -11,6 +11,9 @@ import Player from '../Player.jsx'
 export default function Experience()
 {
     const blocksCount = useGame((state)=> state.blocksCount)
+    const blocksSeed = useGame((state)=> state.gameSeed)
+   
+    
     return <>
         {/* Setup */}
         <color args={["#000000"]} attach="background"/>
@@ -19,9 +22,9 @@ export default function Experience()
         <Perf position={"top-left"}/>
 
         {/* Game */}
-        <Physics debug={true}>  
+        <Physics debug={false}>  
             <Player position={[0,0.7,0]}/>
-            <Level count={blocksCount}/>
+            <Level count={blocksCount} seed={blocksSeed}/>
         </Physics>
 
     </>

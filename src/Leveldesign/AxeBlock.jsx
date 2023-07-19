@@ -25,8 +25,8 @@ export default function AxeBlock ({ position=[0,0,0] })
 
         obstacle.current.setNextKinematicTranslation(
             {x:position[0],
-             y:position[1]+ depthFloor - 4,
-             z:position[2] + + Math.sin(time + offset)})
+             y:position[1]+ depthFloor - 4 ,
+             z:position[2]+ Math.sin(time + offset)})
     })
 
     return<>

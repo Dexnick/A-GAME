@@ -18,7 +18,6 @@ export default function Player({position=[0,0,0]})
 
     const start = useGame((state)=> state.start)
     const end = useGame((state)=> state.end)
-    const restart = useGame((state)=> state.restart)
     const blocksCount = useGame((state)=> state.blocksCount)
 
     const jump = ()=>
@@ -31,7 +30,6 @@ export default function Player({position=[0,0,0]})
 
         if (hit.toi < 0.15 ) 
         ball.current.applyImpulse({x:0, y:1.5, z:0})
-
     }
 
     const reset = ()=>
@@ -126,8 +124,8 @@ export default function Player({position=[0,0,0]})
         cameraTarget.copy(ballPosition)
         cameraTarget.y += 0.5
 
-        smoothedCameraPosition.lerp(cameraPosition, 5 * delta)
-        smoothedCameraTarget.lerp(cameraTarget, 5 * delta)
+        smoothedCameraPosition.lerp(cameraPosition, 2 * delta)
+        smoothedCameraTarget.lerp(cameraTarget, 3 * delta)
 
         state.camera.position.copy(smoothedCameraPosition)
         state.camera.lookAt(smoothedCameraTarget)
@@ -135,26 +133,26 @@ export default function Player({position=[0,0,0]})
         //Phases
 
         if (ballPosition.x > blocksCount * 4 + 2 ) {end()}
-        if (ballPosition.y < - 2  ) {restart()}
+        if (ballPosition.y < - 5 ) {reset()}
 
     })
 
     return <>
-    <RigidBody 
-        ref={ball}
-        colliders="ball" 
-        position={position}
-        restitution={0}
-        friction={0.5} 
-        linearDamping={0.5}
-        angularDamping={0.5}
-        canSleep={false}   
-    >
-        <mesh castShadow receiveShadow >
-            <icosahedronGeometry args={[radius,2]}/>
-            <meshStandardMaterial color="#FF931E" flatShading={true} />
-        </mesh>
-    </RigidBody>
+        <RigidBody 
+            ref={ball}
+            colliders="ball" 
+            position={position}
+            restitution={0}
+            friction={0.5} 
+            linearDamping={0.5}
+            angularDamping={0.5}
+            canSleep={false}   
+        >
+            <mesh castShadow receiveShadow >
+                <icosahedronGeometry args={[radius,2]}/>
+                <meshStandardMaterial color="#FF931E" flatShading={true} />
+            </mesh>
+        </RigidBody>
     </>
 }
  

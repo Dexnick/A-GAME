@@ -3,9 +3,14 @@ import {subscribeWithSelector} from 'zustand/middleware'
 
 export default create(subscribeWithSelector((set)=>
 {
+    let infinity = 1
     return {
-
-        blocksCount: 3 , 
+       
+        blocksCount: infinity,
+        gameSeed: 0, 
+        //Time
+        startTime:0,
+        endTime:0,
 
         //Phases 
         phase: 'ready',
@@ -14,7 +19,7 @@ export default create(subscribeWithSelector((set)=>
         {
             set((state)=> {
                 if(state.phase === 'ready')
-                    return { phase: 'playing' }
+                    return { phase: 'playing', startTime: Date.now() }
                 return {}
             })
         },
@@ -23,7 +28,7 @@ export default create(subscribeWithSelector((set)=>
         {
             set((state)=> {
                 if(state.phase === 'playing' || state.phase === 'ended')
-                    return { phase: 'ready' }
+                    return { phase: 'ready', gameSeed: Math.random(),blocksCount: infinity+=1 }
                 return{}
             })
         },
@@ -32,13 +37,10 @@ export default create(subscribeWithSelector((set)=>
         {
             set((state)=> {
                 if(state.phase === 'playing')
-                { 
-                    console.log('end');
-                    return { phase: 'ended' }
-                }
-                    
+                    return { phase: 'ended', endTime: Date.now()} 
                 return {}
             })
-        }
+        },
+        
     }
 }))

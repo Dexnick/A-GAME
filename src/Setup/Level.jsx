@@ -26,7 +26,7 @@ export const heightWalls = 8
 export const restitution = 0
 export const friction = 1
 
-export default function Level({count=1, types=[TwisterBlock,LimboBlock,AxeBlock]})
+export default function Level({count=0, types=[TwisterBlock,LimboBlock,AxeBlock], seed = 0})
 {
     const blocks = useMemo(()=>
     {
@@ -37,8 +37,7 @@ export default function Level({count=1, types=[TwisterBlock,LimboBlock,AxeBlock]
             blocks.push(generateLevel)
         }
         return blocks
-    },[count, types])
-
+    },[count, types, seed])
     return<>
         <Start position={[0,-5,0]}/>
         { 
